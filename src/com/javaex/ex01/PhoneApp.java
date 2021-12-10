@@ -58,11 +58,10 @@ public class PhoneApp {
 					System.out.print(">휴대전화: ");
 					String phone=sc.nextLine();
 					System.out.print(">회사전화: ");
-					
 					String company=sc.nextLine();
-					Person p = new Person(name, phone, company);
+					String line = name+","+phone+","+company;
 					
-					pList.add(p);
+					addPerson(line, pList);
 					writeDB(pList);
 					System.out.println("[등록되었습니다.]");
 					System.out.println();
