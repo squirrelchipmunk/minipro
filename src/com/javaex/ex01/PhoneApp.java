@@ -124,9 +124,7 @@ public class PhoneApp {
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		for(Person p : pList) {
-			bw.write(p.getName());
-			bw.write(","+p.getHp());
-			bw.write(","+p.getCompany());
+			bw.write( p.getName()+","+p.getHp()+","+p.getCompany() );
 			bw.newLine();
 		}
 		
