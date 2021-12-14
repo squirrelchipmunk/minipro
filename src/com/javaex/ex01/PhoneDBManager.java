@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class PhoneDBManager {
 
-		public static void initPhoneDB(List<Person> pList ,BufferedReader br) throws IOException {
+		public void initPersonList(List<Person> pList ,BufferedReader br) throws IOException {
 			while(true) {	//PhoneDB 시작 상태로 pList 초기화
 				String line = br.readLine();		
 				if(line == null) 
@@ -20,7 +20,7 @@ public class PhoneDBManager {
 		}
 	
 		// 문자열에서 정보를 추출하여 pList에 Person 추가
-		public static void addPerson(String line, List<Person> pList) {			
+		public void addPerson(String line, List<Person> pList) {			
 			String [] pArr= line.split(",");
 			String name = pArr[0];
 			String hp = pArr[1];
@@ -31,7 +31,7 @@ public class PhoneDBManager {
 		}
 		
 		// PhoneDB 갱신
-		public static void writeDB(List<Person> pList) throws IOException {		
+		public void writeDB(List<Person> pList) throws IOException {		
 			Writer fw = new FileWriter("C:\\javaStudy\\file\\phoneDB.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 
@@ -42,7 +42,7 @@ public class PhoneDBManager {
 			bw.close();
 		}
 	
-		public static void insertPerson(List<Person> pList) throws IOException {
+		public void insertPerson(List<Person> pList) throws IOException {
 			Scanner sc = new Scanner(System.in);	
 			System.out.println("<2.등록>");
 			System.out.print(">이름: ");
@@ -58,7 +58,7 @@ public class PhoneDBManager {
 			System.out.println("[등록되었습니다.]");
 		}
 		
-		public static void deletePerson(List<Person> pList) throws IOException {
+		public void deletePerson(List<Person> pList) throws IOException {
 			Scanner sc = new Scanner(System.in);	
 			System.out.println("<3.삭제>");
 			System.out.print(">번호 : ");

@@ -19,29 +19,32 @@ public class PhoneApp {
 		BufferedReader br = new BufferedReader(fr);
 		
 		List<Person> pList = new ArrayList<>();
-		PhoneDBManager.initPhoneDB(pList, br);
-		PhoneView.viewStart();
+		PhoneDBManager phoneDBManager = new PhoneDBManager();
+		PhoneView phoneView = new PhoneView();
+		
+		phoneDBManager.initPersonList(pList, br);
+		phoneView.viewStart();
 		
 		Scanner sc = new Scanner(System.in);
 		boolean repeat = true;	
 		while(repeat) {
-			PhoneView.viewMenu();
-			
+			phoneView.viewMenu();
 			String menuNo = sc.nextLine();
+			
 			switch(menuNo) {
 				case "1" :
-					PhoneView.printPerson(pList);
+					phoneView.printPerson(pList);
 					break;
 				case "2" : 
-					PhoneDBManager.insertPerson(pList);
+					phoneDBManager.insertPerson(pList);
 					break;
 					
 				case "3" : 
-					PhoneDBManager.deletePerson(pList);
+					phoneDBManager.deletePerson(pList);
 					break;
 					
 				case "4" : 
-					PhoneView.searchPerson(pList);
+					phoneView.searchPerson(pList);
 					break;
 					
 				case "5" : 
@@ -49,9 +52,10 @@ public class PhoneApp {
 					break;
 					
 				default : System.out.println("[다시 입력해 주세요.]");
+				
 			}
 		}
-		PhoneView.viewEnd();
+		phoneView.viewEnd();
 		
 		
 		br.close();
